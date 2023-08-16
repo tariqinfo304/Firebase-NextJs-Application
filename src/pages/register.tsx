@@ -55,7 +55,8 @@ function Register() {
   return (
     <>
       <Head>
-        <title>Learn Anything</title>
+        <meta name="description" content="Resgistration Page" />
+        <title>Register</title>
       </Head>
 
       <form

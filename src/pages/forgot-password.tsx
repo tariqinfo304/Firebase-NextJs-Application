@@ -35,7 +35,8 @@ function ForgotPassword() {
   return (
     <html>
       <Head>
-        <title>Learn Anything</title>
+        <meta name="description" content="Forgot Passwors" />
+        <title>Forgot-Password</title>
       </Head>
       <body>
         <form

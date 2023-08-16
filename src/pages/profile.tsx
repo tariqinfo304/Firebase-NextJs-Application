@@ -26,7 +26,8 @@ const Profile = () => {
   return (
     <>
       <Head>
-        <title>Learn Anything</title>
+        <meta name="description" content="Profile Page" />
+        <title>Profile</title>
       </Head>
 
       <div className="flex flex-col h-screen w-screen items-center justify-center min-h-screen bg-gray-100">

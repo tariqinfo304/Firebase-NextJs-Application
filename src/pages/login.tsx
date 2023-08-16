@@ -56,7 +56,8 @@ export default function Login() {
   return (
     <>
       <Head>
-        <title>Learn Anything</title>
+        <meta name="description" content="Login Page" />
+        <title>Login</title>
       </Head>
 
       <form

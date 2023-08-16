@@ -56,7 +56,8 @@ export default function Login() {
   return (
     <>
       <Head>
-        <title>Learn Anything</title>
+        <meta name="description" content="Login Page" />
+        <title>Login</title>
       </Head>
       <form
         className="flex min-h-full h-screen w-screen flex-1 flex-col justify-center px-6 lg:px-8 bg-gray-100"
