@@ -15,7 +15,7 @@ function Register() {
 
   // Context
   //@ts-ignore
-  const { register } = useUserAuth();
+  const { register, logInWithGoogle, logInWithMicrosoft } = useUserAuth();
   // Formik
   const formik = useFormik({
     initialValues: {
@@ -169,7 +169,7 @@ function Register() {
                   Confirm Password
                 </label>
                 {formik.touched.confirmPassword &&
-                formik.errors.confirmPassword ? (
+                  formik.errors.confirmPassword ? (
                   <p className="my-2 text-sm text-red-600 dark:text-red-500">
                     {formik.errors.confirmPassword}
                   </p>
@@ -198,6 +198,59 @@ function Register() {
                 Register
               </button>
             </div>
+            <div className="pt-4">
+              <div className="flex flex-row items-center text-center text-sm text-black font-normal">
+                <hr className="flex-1" />
+                <span className="flex-1 w-full py-1 px-4">
+                  Or continue with
+                </span>
+                <hr className="flex-1" />
+              </div>
+              <div className="flex space-x-4 mt-4">
+                <button
+                  type="button"
+                  onClick={async () => {
+                    const googleUser = await logInWithGoogle();
+                    if (googleUser) {
+                      router.push("/profile");
+                    }
+                  }}
+                  className="flex-1 justify-center items-center px-4 py-2 text-sm border flex gap-2 border-slate-200 rounded-md text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150"
+                >
+                  <Image
+                    width={50}
+                    height={50}
+                    className="w-4 h-4"
+                    src="https://www.svgrepo.com/show/475656/google-color.svg"
+                    loading="lazy"
+                    alt="google logo"
+                  />
+                  <span>Google</span>
+                </button>
+
+                {/* Microsoft button */}
+                <button
+                  type="button"
+                  onClick={async () => {
+                    const microsoftUser = await logInWithMicrosoft();
+                    if (microsoftUser) {
+                      router.push("/profile");
+                    }
+                  }}
+                  className="flex-1 justify-center items-center px-4 py-2 text-sm border flex gap-2 border-slate-200 rounded-md text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150"
+                >
+                  <Image
+                    width={50}
+                    height={50}
+                    className="w-4 h-4"
+                    src="https://learn.microsoft.com/en-us/azure/active-directory/develop/media/howto-add-branding-in-apps/ms-symbollockup_mssymbol_19.svg"
+                    loading="lazy"
+                    alt="microsoft logo"
+                  />
+                  <span>Microsoft</span>
+                </button>
+              </div>
+            </div>
           </div>
 
           <p className="mt-10 text-center text-sm text-gray-500">
@@ -210,7 +263,7 @@ function Register() {
             </Link>
           </p>
         </div>
-      </form>
+      </form >
     </>
   );
 }

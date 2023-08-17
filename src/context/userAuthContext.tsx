@@ -8,6 +8,7 @@ import {
   updateProfile,
   signInWithPopup,
 } from "firebase/auth";
+import { useRouter } from "next/router";
 
 import {
   auth,
@@ -20,6 +21,8 @@ const userAuthContext = createContext();
 
 //@ts-ignore
 function UserAuthContextProvider({ children }) {
+
+  const router = useRouter();
   // States
   const [user, setUser] = useState<any>(null);
 
@@ -101,6 +104,7 @@ function UserAuthContextProvider({ children }) {
         localStorage.setItem("user", JSON.stringify(currentUser));
       } else {
         localStorage.removeItem("user");
+        router.push("/login")
       }
     });
     return () => {
